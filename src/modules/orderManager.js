@@ -1,16 +1,16 @@
-const remoteURL = "http://localhost:3000"
+const remoteURL = "http://localhost:5000"
 
 export default {
     getOrder(id) {
-        return fetch(`${remoteURL}/orders/${id}`).then(e => e.json())
+        return fetch(`${remoteURL}/api/orders/${id}`).then(e => e.json())
     },
 
     getAllOrders() {
-        return fetch(`${remoteURL}/orders`).then(e => e.json())
+        return fetch(`${remoteURL}/api/orders`).then(e => e.json())
     },
 
     deleteOrder(id) {
-        return fetch(`${remoteURL}/orders/${id}`, {
+        return fetch(`${remoteURL}/api/orders/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
@@ -19,7 +19,7 @@ export default {
     },
 
     saveOrder(obj) {
-        return fetch(`${remoteURL}/orders`, {
+        return fetch(`${remoteURL}/api/orders`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -29,7 +29,7 @@ export default {
     },
 
     editOrder(editedOrder) {
-        return fetch(`${remoteURL}/orders/${editedOrder.id}`, {
+        return fetch(`${remoteURL}/api/orders/${editedOrder.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

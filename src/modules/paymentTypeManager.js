@@ -1,16 +1,16 @@
-const remoteURL = "http://localhost:3000"
+const remoteURL = "http://localhost:5000"
 
 export default {
     getPaymentType(id) {
-        return fetch(`${remoteURL}/paymentTypes/${id}`).then(e => e.json())
+        return fetch(`${remoteURL}/api/paymentTypes/${id}`).then(e => e.json())
     },
 
     getAllPaymentTypes() {
-        return fetch(`${remoteURL}/paymentTypes`).then(e => e.json())
+        return fetch(`${remoteURL}/api/paymentTypes`).then(e => e.json())
     },
 
     deletePaymentType(id) {
-        return fetch(`${remoteURL}/paymentTypes/${id}`, {
+        return fetch(`${remoteURL}/api/paymentTypes/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
@@ -19,7 +19,7 @@ export default {
     },
 
     savePaymentType(obj) {
-        return fetch(`${remoteURL}/paymentTypes`, {
+        return fetch(`${remoteURL}/api/paymentTypes`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -29,7 +29,7 @@ export default {
     },
 
     editPaymentType(editedPaymentType) {
-        return fetch(`${remoteURL}/paymentTypes/${editedPaymentType.id}`, {
+        return fetch(`${remoteURL}/api/paymentTypes/${editedPaymentType.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

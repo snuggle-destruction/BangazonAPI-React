@@ -1,16 +1,16 @@
-const remoteURL = "http://localhost:3000"
+const remoteURL = "http://localhost:5000"
 
 export default {
     getTrainingProgram(id) {
-        return fetch(`${remoteURL}/trainingPrograms/${id}`).then(e => e.json())
+        return fetch(`${remoteURL}/api/trainingPrograms/${id}`).then(e => e.json())
     },
 
     getAllTrainingPrograms() {
-        return fetch(`${remoteURL}/trainingPrograms`).then(e => e.json())
+        return fetch(`${remoteURL}/api/trainingPrograms`).then(e => e.json())
     },
 
     deleteTrainingProgram(id) {
-        return fetch(`${remoteURL}/trainingPrograms/${id}`, {
+        return fetch(`${remoteURL}/api/trainingPrograms/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
@@ -19,7 +19,7 @@ export default {
     },
 
     saveTrainingProgram(obj) {
-        return fetch(`${remoteURL}/trainingPrograms`, {
+        return fetch(`${remoteURL}/api/trainingPrograms`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -29,7 +29,7 @@ export default {
     },
 
     editTrainingProgram(editedTrainingProgram) {
-        return fetch(`${remoteURL}/trainingPrograms/${editedTrainingProgram.id}`, {
+        return fetch(`${remoteURL}/api/trainingPrograms/${editedTrainingProgram.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

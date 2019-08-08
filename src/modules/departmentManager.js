@@ -1,16 +1,16 @@
-const remoteURL = "http://localhost:3000"
+const remoteURL = "http://localhost:5000"
 
 export default {
     getDepartment(id) {
-        return fetch(`${remoteURL}/departments/${id}`).then(e => e.json())
+        return fetch(`${remoteURL}/api/departments/${id}`).then(e => e.json())
     },
 
     getAllDepartments() {
-        return fetch(`${remoteURL}/departments`).then(e => e.json())
+        return fetch(`${remoteURL}/api/departments`).then(e => e.json())
     },
 
     deleteDepartment(id) {
-        return fetch(`${remoteURL}/departments/${id}`, {
+        return fetch(`${remoteURL}/api/departments/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
@@ -19,7 +19,7 @@ export default {
     },
 
     saveDepartment(obj) {
-        return fetch(`${remoteURL}/departments`, {
+        return fetch(`${remoteURL}/api/departments`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -29,7 +29,7 @@ export default {
     },
 
     editDepartment(editedDepartment) {
-        return fetch(`${remoteURL}/departments/${editedDepartment.id}`, {
+        return fetch(`${remoteURL}/api/departments/${editedDepartment.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

@@ -1,16 +1,16 @@
-const remoteURL = "http://localhost:3000"
+const remoteURL = "http://localhost:5000"
 
 export default {
     getComputer(id) {
-        return fetch(`${remoteURL}/computers/${id}`).then(e => e.json())
+        return fetch(`${remoteURL}/api/computers/${id}`).then(e => e.json())
     },
 
     getAllComputers() {
-        return fetch(`${remoteURL}/computers`).then(e => e.json())
+        return fetch(`${remoteURL}/api/computers`).then(e => e.json())
     },
 
     deleteComputer(id) {
-        return fetch(`${remoteURL}/computers/${id}`, {
+        return fetch(`${remoteURL}/api/computers/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
@@ -19,7 +19,7 @@ export default {
     },
 
     saveComputer(obj) {
-        return fetch(`${remoteURL}/computers`, {
+        return fetch(`${remoteURL}/api/computers`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -29,7 +29,7 @@ export default {
     },
 
     editComputer(editedComputer) {
-        return fetch(`${remoteURL}/computers/${editedComputer.id}`, {
+        return fetch(`${remoteURL}/api/computers/${editedComputer.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

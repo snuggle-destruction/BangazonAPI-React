@@ -1,16 +1,16 @@
-const remoteURL = "http://localhost:3000"
+const remoteURL = "http://localhost:5000"
 
 export default {
     getCustomer(id) {
-        return fetch(`${remoteURL}/customers/${id}`).then(e => e.json())
+        return fetch(`${remoteURL}/api/customers/${id}`).then(e => e.json())
     },
 
     getAllCustomers() {
-        return fetch(`${remoteURL}/customers`).then(e => e.json())
+        return fetch(`${remoteURL}/api/customers`).then(e => e.json())
     },
 
     deleteCustomer(id) {
-        return fetch(`${remoteURL}/customers/${id}`, {
+        return fetch(`${remoteURL}/api/customers/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
@@ -19,7 +19,7 @@ export default {
     },
 
     saveCustomer(obj) {
-        return fetch(`${remoteURL}/customers`, {
+        return fetch(`${remoteURL}/api/customers`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -29,7 +29,7 @@ export default {
     },
 
     editCustomer(editedCustomer) {
-        return fetch(`${remoteURL}/customers/${editedCustomer.id}`, {
+        return fetch(`${remoteURL}/api/customers/${editedCustomer.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
