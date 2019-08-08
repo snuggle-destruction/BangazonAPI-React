@@ -14,6 +14,7 @@ import Computer from './components/computers';
 import Department from './components/departments';
 import Employee from './components/employees';
 import Order from './components/orders';
+import PaymentType from './components/paymentTypes';
 
 
 
@@ -122,8 +123,8 @@ class ApplicationViews extends Component {
                             />
                         } } />
 
-                        <Route exact path="/paymenttypes" render={ (props) => {
-                            return <Order
+                        <Route exact path="/paymentTypes" render={ (props) => {
+                            return <PaymentType
                                 { ...props }
                                 { ...this.props }
                                 payment={ this.state.paymentTypes }
