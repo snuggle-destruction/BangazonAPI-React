@@ -121,6 +121,14 @@ class ApplicationViews extends Component {
                                 products={ this.state.products }
                             />
                         } } />
+
+                        <Route exact path="/paymenttypes" render={ (props) => {
+                            return <Order
+                                { ...props }
+                                { ...this.props }
+                                payment={ this.state.paymentTypes }
+                            />
+                        } } />
                     </div>
                 </div>
             </>
