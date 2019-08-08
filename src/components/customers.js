@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardText, CardBody, CardTitle, CardSubtitle, CardDeck } from 'reactstrap';
+import { Card, CardText, CardTitle, CardSubtitle, CardColumns } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default class Customer extends Component {
@@ -18,7 +18,7 @@ export default class Customer extends Component {
         });
 
         return (
-            <CardDeck>{ allCustomers }</CardDeck>
+            <CardColumns>{ allCustomers }</CardColumns>
         )
     }
 }
