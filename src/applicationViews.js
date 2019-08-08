@@ -23,10 +23,11 @@ class ApplicationViews extends Component {
         computers: [],
         customers: [],
         customerPayments: [],
+        customerProducts: [],
         departments: [],
         employees: [],
         paymentTypes: [],
-        productManagers: [],
+        products: [],
         trainingPrograms: []
     };
     //calls
@@ -36,20 +37,31 @@ class ApplicationViews extends Component {
         const newState = {};
         computerManager.getAllComputers()
             .then(computers => { newState.computers = computers })
+
             .then(customerManager.getAllCustomers)
             .then(customers => { newState.customers = customers })
+
             .then(customerManager.getAllCustomersPayments)
             .then(customerPayments => { newState.customerPayments = customerPayments })
+
+            .then(customerManager.getAllCustomersProducts)
+            .then(customerProducts => { newState.customerProducts = customerProducts })
+
             .then(departmentManager.getAllDepartments)
             .then(departments => { newState.departments = departments })
+
             .then(employeeManager.getAllEmployees)
             .then(employees => { newState.employees = employees })
+
             .then(paymentManager.getAllPaymentTypes)
             .then(paymentTypes => { newState.paymentTypes = paymentTypes })
+
             .then(productManager.getAllProducts)
-            .then(productManagers => { newState.productManagers = productManagers })
+            .then(productManagers => { newState.products = productManagers })
+
             .then(trainingProgram.getAllTrainingPrograms)
             .then(trainingPrograms => { newState.trainingPrograms = trainingPrograms })
+
             .then(() => this.setState(newState));
     }
 
@@ -70,6 +82,7 @@ class ApplicationViews extends Component {
                                 { ...props }
                                 { ...this.props }
                                 customers={ this.state.customers }
+                                customerProducts={ this.state.customerProducts }
                             />
                         } } />
 
@@ -105,6 +118,7 @@ class ApplicationViews extends Component {
                                 customers={ this.state.customers }
                                 customerPayments={ this.state.customerPayments }
                                 payment={ this.state.paymentTypes }
+                                products={ this.state.products }
                             />
                         } } />
                     </div>

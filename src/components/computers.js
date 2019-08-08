@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardText, CardTitle, CardSubtitle, CardColumns } from 'reactstrap';
+import { Card, CardText, CardTitle, CardColumns } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default class Computers extends Component {
@@ -10,8 +10,7 @@ export default class Computers extends Component {
             return (
                 <Card body key={ item.id }>
                     <CardTitle>{ item.make }, { item.manufacturer }</CardTitle>
-                    <CardSubtitle>{ item.decomissionDate !== '0001-01-01T00:00:00' ? "Decomissioned" : "In Use" }</CardSubtitle>
-                    <CardText>{ item.department }</CardText>
+                    <CardText>{ item.decomissionDate !== '0001-01-01T00:00:00' ? "Decomissioned" : "In Use" }</CardText>
                 </Card>
             );
         });

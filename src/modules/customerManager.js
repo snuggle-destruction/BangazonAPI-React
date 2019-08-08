@@ -13,6 +13,10 @@ export default {
         return fetch(`${remoteURL}/api/customers?_include=payments`).then(e => e.json())
     },
 
+    getAllCustomersProducts() {
+        return fetch(`${remoteURL}/api/customers?_include=products`).then(e => e.json())
+    },
+
     deleteCustomer(id) {
         return fetch(`${remoteURL}/api/customers/${id}`, {
             method: "DELETE",
