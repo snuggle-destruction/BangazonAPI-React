@@ -7,7 +7,7 @@ import departmentManager from './modules/departmentManager';
 import employeeManager from './modules/employeeManager';
 import paymentManager from './modules/paymentTypeManager';
 import productManager from './modules/productManager';
-import trainingProgram from './modules/trainingProgram';
+import trainingProgram from './modules/trainingProgramManager';
 import Home from './components/home';
 import Customer from './components/customers';
 import Computer from './components/computers';
@@ -15,7 +15,7 @@ import Department from './components/departments';
 import Employee from './components/employees';
 import Order from './components/orders';
 import PaymentType from './components/paymentTypes';
-
+import TrainingProgram from './components/trainingPrograms'
 
 
 
@@ -128,6 +128,14 @@ class ApplicationViews extends Component {
                                 { ...props }
                                 { ...this.props }
                                 payment={ this.state.paymentTypes }
+                            />
+                        } } />
+
+                        <Route exact path="/trainingPrograms" render={ (props) => {
+                            return <TrainingProgram
+                                { ...props }
+                                { ...this.props }
+                                programs={ this.state.trainingPrograms }
                             />
                         } } />
                     </div>
