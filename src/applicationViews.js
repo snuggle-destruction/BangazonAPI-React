@@ -16,6 +16,8 @@ import Employee from './components/employees';
 import Order from './components/orders';
 import PaymentType from './components/paymentTypes';
 import TrainingProgram from './components/trainingPrograms'
+import Product from './components/products';
+
 
 
 
@@ -116,9 +118,15 @@ class ApplicationViews extends Component {
                             return <Order
                                 { ...props }
                                 { ...this.props }
-                                customers={ this.state.customers }
-                                customerPayments={ this.state.customerPayments }
-                                payment={ this.state.paymentTypes }
+                                customers={ this.state.customerPayments }
+                                payments={ this.state.paymentTypes }
+                            />
+                        } } />
+
+                        <Route exact path="/products" render={ (props) => {
+                            return <Product
+                                { ...props }
+                                { ...this.props }
                                 products={ this.state.products }
                             />
                         } } />
