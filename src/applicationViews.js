@@ -5,12 +5,16 @@ import computerManager from './modules/computerManager';
 import customerManager from './modules/customerManager';
 import departmentManager from './modules/departmentManager';
 import employeeManager from './modules/employeeManager';
-import orderManager from './modules/orderManager';
 import paymentManager from './modules/paymentTypeManager';
 import productManager from './modules/productManager';
 import trainingProgram from './modules/trainingProgram';
 import Home from './components/home';
 import Customer from './components/customers';
+import Computer from './components/computers';
+import Department from './components/departments';
+import Employee from './components/employees';
+import Order from './components/orders';
+
 
 
 
@@ -18,10 +22,12 @@ class ApplicationViews extends Component {
     state = {
         computers: [],
         customers: [],
+        customerPayments: [],
+        customerProducts: [],
         departments: [],
         employees: [],
         paymentTypes: [],
-        productManagers: [],
+        products: [],
         trainingPrograms: []
     };
     //calls
@@ -31,20 +37,31 @@ class ApplicationViews extends Component {
         const newState = {};
         computerManager.getAllComputers()
             .then(computers => { newState.computers = computers })
+
             .then(customerManager.getAllCustomers)
             .then(customers => { newState.customers = customers })
+
+            .then(customerManager.getAllCustomersPayments)
+            .then(customerPayments => { newState.customerPayments = customerPayments })
+
+            .then(customerManager.getAllCustomersProducts)
+            .then(customerProducts => { newState.customerProducts = customerProducts })
+
             .then(departmentManager.getAllDepartments)
             .then(departments => { newState.departments = departments })
+
             .then(employeeManager.getAllEmployees)
             .then(employees => { newState.employees = employees })
-            .then(orderManager.getAllOrders)
-            .then(orders => { newState.orders = orders })
+
             .then(paymentManager.getAllPaymentTypes)
             .then(paymentTypes => { newState.paymentTypes = paymentTypes })
+
             .then(productManager.getAllProducts)
-            .then(productManagers => { newState.productManagers = productManagers })
+            .then(productManagers => { newState.products = productManagers })
+
             .then(trainingProgram.getAllTrainingPrograms)
             .then(trainingPrograms => { newState.trainingPrograms = trainingPrograms })
+
             .then(() => this.setState(newState));
     }
 
@@ -65,6 +82,43 @@ class ApplicationViews extends Component {
                                 { ...props }
                                 { ...this.props }
                                 customers={ this.state.customers }
+                                customerProducts={ this.state.customerProducts }
+                            />
+                        } } />
+
+                        <Route exact path="/computers" render={ (props) => {
+                            return <Computer
+                                { ...props }
+                                { ...this.props }
+                                computers={ this.state.computers }
+                            />
+                        } } />
+
+                        <Route exact path="/departments" render={ (props) => {
+                            return <Department
+                                { ...props }
+                                { ...this.props }
+                                departments={ this.state.departments }
+                            />
+                        } } />
+
+                        <Route exact path="/employees" render={ (props) => {
+                            return <Employee
+                                { ...props }
+                                { ...this.props }
+                                employees={ this.state.employees }
+                                departments={ this.state.departments }
+                            />
+                        } } />
+
+                        <Route exact path="/orders" render={ (props) => {
+                            return <Order
+                                { ...props }
+                                { ...this.props }
+                                customers={ this.state.customers }
+                                customerPayments={ this.state.customerPayments }
+                                payment={ this.state.paymentTypes }
+                                products={ this.state.products }
                             />
                         } } />
                     </div>
